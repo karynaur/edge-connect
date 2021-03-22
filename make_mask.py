@@ -4,6 +4,7 @@ import numpy as np
 
 
 img=cv2.imread(sys.argv[1],cv2.IMREAD_UNCHANGED)
+turn=int(sys.argv[2])
 scale_percent=95 #percent to scale
 
 width_and_height=int(img.shape[0]*scale_percent/100)
@@ -22,5 +23,6 @@ mask=mask_template.copy()
 
 mask_template[start:end,start:end,:]=resize
 cv2.imwrite("source/esher.jpg",mask_template)
-mask_template[start:end,start:end,:]=[0,0,0]
+mask_template[start+(5*turn):end-(5*turn),start+(5*turn):end-(5*turn),:]=[0,0,0]
 cv2.imwrite("mask/mask.jpg",mask_template)
+
