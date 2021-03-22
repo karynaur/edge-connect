@@ -23,6 +23,6 @@ mask=mask_template.copy()
 
 mask_template[start:end,start:end,:]=resize
 cv2.imwrite("source/esher.jpg",mask_template)
-mask_template[start+(5*turn):end-(5*turn),start+(5*turn):end-(5*turn),:]=[0,0,0]
+mask_template[start:end,start:end,:]=[0,0,0]
 cv2.imwrite("mask/mask.jpg",mask_template)
 
